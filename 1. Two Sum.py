@@ -15,7 +15,8 @@ def two_sum(nums, target):
             return [seen[diff], i]
         seen[num] = i
     return -1
-
+    
+print(TwoSum([2, 3, 7, 9], 7))
 
 
 """
@@ -30,4 +31,5 @@ def TwoSum(arr,target):
                   
     print(TwoSum([2, 3, 7, 9], 7))           
 """
+
 
