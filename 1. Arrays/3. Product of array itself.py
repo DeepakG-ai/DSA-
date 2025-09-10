@@ -1,11 +1,20 @@
-"""
-LeetCode Problem: 238. Product of Array Except Self
+"""LeetCode Problem 238: Product of Array Except Self
 Method: Prefix and Suffix Multiplication (no division)
 Category: Arrays
 Time Complexity: O(n)
 Space Complexity: O(1) excluding the output array
 Link: https://leetcode.com/problems/product-of-array-except-self/
-"""
+
+-----------------------------------
+Constraints:
+• 2 <= nums.length <= 10^5
+• -30 <= nums[i] <= 30
+• The product of any prefix or suffix of nums fits in a 32-bit integer
+• Must solve without using division operation
+• Must solve in O(n) time complexity
+• Must solve with O(1) extra space complexity (output array doesn't count)
+
+-----------------------------------
 
 def product_except_self(nums):
     n = len(nums)
