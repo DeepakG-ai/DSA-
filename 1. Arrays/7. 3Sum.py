@@ -1,5 +1,7 @@
 from typing import List
 
+#Optimal Solution 
+
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()  # Step 1: Sort array
@@ -31,5 +33,21 @@ class Solution:
                         right -= 1
 
         return res
+
+
+#Brute force solution 
+O(n^3) --> time complexity
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result = set()   # use set to avoid duplicates
+        n = len(nums)
+        for i in range(n):
+            for j in range(i+1, n):
+                for k in range(j+1, n):
+                    if nums[i] + nums[j] + nums[k] == 0:
+                        triplet = tuple(sorted([nums[i], nums[j], nums[k]]))
+                        result.add(triplet)  # set ensures uniqueness
+        
+        return [list(triplet) for triplet in result]
 
 
