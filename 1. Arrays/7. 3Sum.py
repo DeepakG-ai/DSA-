@@ -1,3 +1,37 @@
+"""LeetCode Problem 15: 3Sum
+Method: Two Pointers + Sorting
+Category: Arrays, Two Pointers
+Time Complexity: O(n^2) - nested loop with two pointers
+Space Complexity: O(1) - excluding the space required for output
+Link: https://leetcode.com/problems/3sum/
+
+-----------------------------------
+Constraints:
+• 3 <= nums.length <= 3000
+• -10^5 <= nums[i] <= 10^5
+• Solutions must not contain duplicate triplets
+
+-----------------------------------
+Examples:
+
+Example 1:
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+Explanation: 
+nums[0] + nums[2] + nums[4] = (-1) + 1 + (-1) = -1
+nums[1] + nums[2] + nums[3] = 0 + 1 + 2 = 3
+
+Example 2:
+Input: nums = [0,1,1]
+Output: []
+Explanation: The only possible triplet does not sum up to 0.
+
+Example 3:
+Input: nums = [0,0,0]
+Output: [[0,0,0]]
+Explanation: The only possible triplet sums up to 0.
+"""
+
 from typing import List
 
 #Optimal Solution 
@@ -36,7 +70,7 @@ class Solution:
 
 
 #Brute force solution 
-O(n^3) --> time complexity
+#O(n^3) --> time complexity
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         result = set()   # use set to avoid duplicates
