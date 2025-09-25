@@ -7,6 +7,8 @@ def longest_subarray_sum_leq_k(arr, k):
         cursum += arr[r]
 
         # Shrink window while sum > k  it is not validated. while cursum<k: it is validated in sliding window
+
+     # In sliding window, expand the right pointer and shrink the left pointer. not for every problem 
         while cursum > k and l <= r:
             cursum -= arr[l]
             l += 1
