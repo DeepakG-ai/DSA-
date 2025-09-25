@@ -6,7 +6,7 @@ def longest_subarray_sum_leq_k(arr, k):
     for r in range(len(arr)):
         cursum += arr[r]
 
-        # Shrink window while sum > k
+        # Shrink window while sum > k  it is not validated. while cursum<k: it is validated in sliding window
         while cursum > k and l <= r:
             cursum -= arr[l]
             l += 1
