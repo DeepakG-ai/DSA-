@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked Lists in Python: Beginner to Advanced</title>
+    <style>
+        @media print {
+            body { margin: 0.5in; }
+            .page-break { page-break-before: always; }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+        
+        h4 {
+            color: #34495e;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+        
+        .toc ol {
+            padding-left: 20px;
+        }
+        
+        .toc li {
+            margin: 5px 0;
+        }
+        
+        pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #e74c3c;
+        }
+        
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .example {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .advantages {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .disadvantages {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .conclusion {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 2px solid #3498db;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .problem-header {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0 10px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .problem-header h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+        
+        .complexity {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        
+        .node-diagram {
+            text-align: center;
+            font-family: monospace;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        @page {
+            margin: 0.5in;
+            @top-right {
+                content: counter(page);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Linked Lists in Python: Beginner to Advanced</h1>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#introduction">Introduction &amp; Real-World Analogy</a></li>
+            <li><a href="#basic-concepts">Basic Concepts</a></li>
+            <li><a href="#types">Types of Linked Lists</a></li>
+            <li><a href="#implementation">Implementation in Python</a></li>
+            <li><a href="#operations">Common Operations</a></li>
+            <li><a href="#advanced">Advanced Concepts</a></li>
+            <li><a href="#problems">Practice Problems with Solutions</a></li>
+            <li><a href="#applications">Real-World Applications</a></li>
+            <li><a href="#best-practices">Best Practices &amp; Tips</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ol>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="introduction">1. Introduction &amp; Real-World Analogy</h2>
+
+    <h3>What is a Linked List?</h3>
+    <p>A linked list is a linear data structure where elements are stored in nodes, and each node contains two components:</p>
+    <ul>
+        <li><strong>Data</strong>: The actual value stored in the node</li>
+        <li><strong>Next</strong>: A reference (pointer) to the next node in the sequence</li>
+    </ul>
+
+    <div class="node-diagram">
+        [Data|Next] -> [Data|Next] -> [Data|Next] -> NULL
+    </div>
+
+    <h3>Real-World Examples</h3>
+
+    <div class="example">
+        <h4>1. Train Carriages</h4>
+        <ul>
+            <li>Each carriage (node) is connected to the next one</li>
+            <li>You can add or remove carriages at any position</li>
+            <li>To reach the last carriage, you must pass through all previous ones</li>
+        </ul>
+    </div>
+
+    <div class="example">
+        <h4>2. Music Playlist</h4>
+        <ul>
+            <li>Each song (node) has a "next" button to the following song</li>
+            <li>In a circular playlist, the last song connects back to the first</li>
+            <li>Doubly linked lists are like having both "next" and "previous" buttons</li>
+        </ul>
+    </div>
+
+    <div class="example">
+        <h4>3. Browser History</h4>
+        <ul>
+            <li>Each webpage visit is a node</li>
+            <li>Back button uses the previous pointer (doubly linked list)</li>
+            <li>Forward button uses the next pointer</li>
+        </ul>
+    </div>
+
+    <div class="example">
+        <h4>4. Undo/Redo Functionality</h4>
+        <ul>
+            <li>Each action is a node in the list</li>
+            <li>Undo traverses backward</li>
+            <li>Redo traverses forward</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="basic-concepts">2. Basic Concepts</h2>
+
+    <h3>Node Structure</h3>
+    <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data  # Store the actual value
+        self.next = None  # Reference to the next node</code></pre>
+
+    <h3>Head Pointer</h3>
+    <ul>
+        <li>The <code>head</code> is a reference to the first node in the linked list</li>
+        <li>If <code>head</code> is <code>None</code>, the list is empty</li>
+        <li>All traversal operations start from the head</li>
+    </ul>
+
+    <div class="advantages">
+        <h3>Advantages over Arrays</h3>
+        <ol>
+            <li><strong>Dynamic Size</strong>: Can grow/shrink during runtime</li>
+            <li><strong>Efficient Insertion/Deletion</strong>: O(1) at the beginning</li>
+            <li><strong>Memory Efficiency</strong>: Allocates memory as needed</li>
+            <li><strong>No Memory Waste</strong>: Unlike arrays with fixed size</li>
+        </ol>
+    </div>
+
+    <div class="disadvantages">
+        <h3>Disadvantages</h3>
+        <ol>
+            <li><strong>No Random Access</strong>: Must traverse from head to reach any element</li>
+            <li><strong>Extra Memory</strong>: Stores pointers along with data</li>
+            <li><strong>Not Cache Friendly</strong>: Nodes may be scattered in memory</li>
+            <li><strong>Reverse Traversal</strong>: Difficult in singly linked lists</li>
+        </ol>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="types">3. Types of Linked Lists</h2>
+
+    <h3>1. Singly Linked List</h3>
+    <ul>
+        <li>Each node points to the next node only</li>
+        <li>Last node points to <code>None</code></li>
+        <li>Can only traverse forward</li>
+    </ul>
+
+    <div class="node-diagram">
+        [A|*] -> [B|*] -> [C|*] -> NULL
+    </div>
+
+    <h3>2. Doubly Linked List</h3>
+    <ul>
+        <li>Each node has references to both next and previous nodes</li>
+        <li>Can traverse in both directions</li>
+        <li>Takes more memory but offers more flexibility</li>
+    </ul>
+
+    <pre><code>class DoublyNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None</code></pre>
+
+    <div class="node-diagram">
+        NULL <- [*|A|*] <-> [*|B|*] <-> [*|C|*] -> NULL
+    </div>
+
+    <h3>3. Circular Linked List</h3>
+    <ul>
+        <li>Last node points back to the first node</li>
+        <li>No <code>None</code> references in the list</li>
+        <li>Useful for round-robin scheduling, circular buffers</li>
+    </ul>
+
+    <h3>4. Circular Doubly Linked List</h3>
+    <ul>
+        <li>Combination of doubly and circular</li>
+        <li>Last node's next points to first, first node's prev points to last</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2 id="implementation">4. Implementation in Python</h2>
+
+    <h3>Complete Singly Linked List Implementation</h3>
+
+    <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.size = 0
+    
+    # Insert at the beginning - O(1)
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        self.size += 1
+    
+    # Insert at the end - O(n)
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_node
+        self.size += 1
+    
+    # Insert at specific position - O(n)
+    def insert_at_position(self, data, position):
+        if position < 0 or position > self.size:
+            raise IndexError("Position out of bounds")
+        
+        if position == 0:
+            self.insert_at_beginning(data)
+            return
+        
+        new_node = Node(data)
+        current = self.head
+        for _ in range(position - 1):
+            current = current.next
+        
+        new_node.next = current.next
+        current.next = new_node
+        self.size += 1
+    
+    # Delete from beginning - O(1)
+    def delete_from_beginning(self):
+        if not self.head:
+            raise Exception("List is empty")
+        
+        data = self.head.data
+        self.head = self.head.next
+        self.size -= 1
+        return data
+    
+    # Delete from end - O(n)
+    def delete_from_end(self):
+        if not self.head:
+            raise Exception("List is empty")
+        
+        if not self.head.next:
+            data = self.head.data
+            self.head = None
+            self.size -= 1
+            return data
+        
+        current = self.head
+        while current.next.next:
+            current = current.next
+        
+        data = current.next.data
+        current.next = None
+        self.size -= 1
+        return data
+    
+    # Delete at specific position - O(n)
+    def delete_at_position(self, position):
+        if position < 0 or position >= self.size:
+            raise IndexError("Position out of bounds")
+        
+        if position == 0:
+            return self.delete_from_beginning()
+        
+        current = self.head
+        for _ in range(position - 1):
+            current = current.next
+        
+        data = current.next.data
+        current.next = current.next.next
+        self.size -= 1
+        return data
+    
+    # Search for an element - O(n)
+    def search(self, key):
+        current = self.head
+        position = 0
+        
+        while current:
+            if current.data == key:
+                return position
+            current = current.next
+            position += 1
+        
+        return -1
+    
+    # Display the list
+    def display(self):
+        if not self.head:
+            print("List is empty")
+            return
+        
+        current = self.head
+        elements = []
+        while current:
+            elements.append(str(current.data))
+            current = current.next
+        
+        print(" -> ".join(elements) + " -> None")
+    
+    # Get length - O(1) with size tracking
+    def get_length(self):
+        return self.size
+    
+    # Reverse the linked list - O(n)
+    def reverse(self):
+        prev = None
+        current = self.head
+        
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        
+        self.head = prev</code></pre>
+
+    <div class="page-break"></div>
+
+    <h3>Doubly Linked List Implementation</h3>
+
+    <pre><code>class DoublyNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+    
+    def insert_at_beginning(self, data):
+        new_node = DoublyNode(data)
+        
+        if not self.head:
+            self.head = self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+        
+        self.size += 1
+    
+    def insert_at_end(self, data):
+        new_node = DoublyNode(data)
+        
+        if not self.tail:
+            self.head = self.tail = new_node
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+        
+        self.size += 1
+    
+    def delete_from_beginning(self):
+        if not self.head:
+            raise Exception("List is empty")
+        
+        data = self.head.data
+        
+        if self.head == self.tail:
+            self.head = self.tail = None
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+        
+        self.size -= 1
+        return data
+    
+    def delete_from_end(self):
+        if not self.tail:
+            raise Exception("List is empty")
+        
+        data = self.tail.data
+        
+        if self.head == self.tail:
+            self.head = self.tail = None
+        else:
+            self.tail = self.tail.prev
+            self.tail.next = None
+        
+        self.size -= 1
+        return data</code></pre>
+
+    <div class="page-break"></div>
+
+    <h2 id="operations">5. Common Operations</h2>
+
+    <h3>Time Complexities</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Operation</th>
+                <th>Singly Linked List</th>
+                <th>Doubly Linked List</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Insert at Head</td>
+                <td>O(1)</td>
+                <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>Insert at Tail</td>
+                <td>O(n)</td>
+                <td>O(1) with tail pointer</td>
+            </tr>
+            <tr>
+                <td>Insert at Position</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Delete at Head</td>
+                <td>O(1)</td>
+                <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>Delete at Tail</td>
+                <td>O(n)</td>
+                <td>O(1) with tail pointer</td>
+            </tr>
+            <tr>
+                <td>Delete at Position</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Search</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Access by Index</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 id="advanced">6. Advanced Concepts</h2>
+
+    <h3>Detecting Cycles (Floyd's Algorithm)</h3>
+    <pre><code>def has_cycle(head):
+    if not head or not head.next:
+        return False
+    
+    slow = head
+    fast = head.next
+    
+    while fast and fast.next:
+        if slow == fast:
+            return True
+        slow = slow.next
+        fast = fast.next.next
+    
+    return False</code></pre>
+
+    <h3>Finding Middle Element</h3>
+    <pre><code>def find_middle(head):
+    if not head:
+        return None
+    
+    slow = fast = head
+    
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    
+    return slow.data</code></pre>
+
+    <h3>Merging Two Sorted Lists</h3>
+    <pre><code>def merge_sorted_lists(head1, head2):
+    dummy = Node(0)
+    current = dummy
+    
+    while head1 and head2:
+        if head1.data <= head2.data:
+            current.next = head1
+            head1 = head1.next
+        else:
+            current.next = head2
+            head2 = head2.next
+        current = current.next
+    
+    current.next = head1 if head1 else head2
+    return dummy.next</code></pre>
+
+    <div class="page-break"></div>
+
+    <h2 id="problems">7. Practice Problems with Solutions</h2>
+
+    <div class="problem-header">
+        <h4>Problem 1: Reverse a Linked List</h4>
+        <p><strong>Problem</strong>: Given a linked list, reverse it in-place.</p>
+        <p><strong>Approach</strong>: Use three pointers: prev, current, and next. Iterate through the list, reversing the direction of each link. Update head to point to the last node.</p>
+    </div>
+
+    <pre><code>def reverse_linked_list(head):
+    """
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """
+    prev = None
+    current = head
+    
+    while current:
+        # Store next node
+        next_node = current.next
+        # Reverse the link
+        current.next = prev
+        # Move pointers forward
+        prev = current
+        current = next_node
+    
+    return prev  # New head
+
+# Example usage:
+# Input: 1 -> 2 -> 3 -> 4 -> 5
+# Output: 5 -> 4 -> 3 -> 2 -> 1</code></pre>
+
+    <div class="problem-header">
+        <h4>Problem 2: Detect and Remove Loop</h4>
+        <p><strong>Problem</strong>: Given a linked list that may contain a loop, detect if a loop exists and remove it.</p>
+        <p><strong>Approach</strong>: Use Floyd's cycle detection to find if loop exists. If loop exists, find the start of the loop. Remove the loop by breaking the connection.</p>
+    </div>
+
+    <pre><code>def detect_and_remove_loop(head):
+    """
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """
+    if not head or not head.next:
+        return head
+    
+    # Step 1: Detect if loop exists using Floyd's algorithm
+    slow = fast = head
+    loop_exists = False
+    
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            loop_exists = True
+            break
+    
+    if not loop_exists:
+        return head
+    
+    # Step 2: Find the start of the loop
+    slow = head
+    # Special case: when loop starts at head
+    if slow == fast:
+        while fast.next != slow:
+            fast = fast.next
+    else:
+        while slow.next != fast.next:
+            slow = slow.next
+            fast = fast.next
+    
+    # Step 3: Remove the loop
+    fast.next = None
+    return head</code></pre>
+
+    <div class="page-break"></div>
+
+    <div class="problem-header">
+        <h4>Problem 3: Find Nth Node from End</h4>
+        <p><strong>Problem</strong>: Find the nth node from the end of a linked list in one pass.</p>
+        <p><strong>Approach</strong>: Use two pointers with a gap of n nodes between them. When the first pointer reaches the end, the second pointer will be at the nth node from end.</p>
+    </div>
+
+    <pre><code>def find_nth_from_end(head, n):
+    """
+    Time Complexity: O(length)
+    Space Complexity: O(1)
+    """
+    if not head or n <= 0:
+        return None
+    
+    first = second = head
+    
+    # Move first pointer n steps ahead
+    for _ in range(n):
+        if not first:
+            return None  # n is greater than list length
+        first = first.next
+    
+    # Move both pointers until first reaches end
+    while first:
+        first = first.next
+        second = second.next
+    
+    return second.data if second else None
+
+# Example: List: 1->2->3->4->5, n=2
+# Output: 4 (2nd node from end)</code></pre>
+
+    <div class="problem-header">
+        <h4>Problem 4: Check if Linked List is Palindrome</h4>
+        <p><strong>Problem</strong>: Check if a singly linked list forms a palindrome.</p>
+        <p><strong>Approach</strong>: Find the middle of the list. Reverse the second half. Compare both halves. Restore the original list (optional).</p>
+    </div>
+
+    <pre><code>def is_palindrome(head):
+    """
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """
+    if not head or not head.next:
+        return True
+    
+    # Step 1: Find middle using slow and fast pointers
+    slow = fast = head
+    while fast.next and fast.next.next:
+        slow = slow.next
+        fast = fast.next.next
+    
+    # Step 2: Reverse second half
+    second_half = reverse_linked_list(slow.next)
+    slow.next = None
+    
+    # Step 3: Compare both halves
+    first_half = head
+    is_palin = True
+    
+    while second_half:
+        if first_half.data != second_half.data:
+            is_palin = False
+            break
+        first_half = first_half.next
+        second_half = second_half.next
+    
+    return is_palin
+
+# Example: 1->2->3->2->1 returns True
+# Example: 1->2->3->4->5 returns False</code></pre>
+
+    <div class="page-break"></div>
+
+    <div class="problem-header">
+        <h4>Problem 5: Merge K Sorted Linked Lists</h4>
+        <p><strong>Problem</strong>: Given k sorted linked lists, merge them into one sorted linked list.</p>
+        <p><strong>Approach</strong>: Use divide and conquer approach to merge lists in pairs recursively.</p>
+    </div>
+
+    <pre><code>def merge_k_sorted_lists_divide(lists):
+    """
+    Approach: Divide and Conquer
+    Time Complexity: O(N log k)
+    Space Complexity: O(log k) for recursion stack
+    """
+    if not lists:
+        return None
+    
+    def merge_two_lists(l1, l2):
+        dummy = Node(0)
+        current = dummy
+        
+        while l1 and l2:
+            if l1.data <= l2.data:
+                current.next = l1
+                l1 = l1.next
+            else:
+                current.next = l2
+                l2 = l2.next
+            current = current.next
+        
+        current.next = l1 if l1 else l2
+        return dummy.next
+    
+    # Divide and conquer
+    while len(lists) > 1:
+        merged_lists = []
+        
+        # Merge lists in pairs
+        for i in range(0, len(lists), 2):
+            l1 = lists[i]
+            l2 = lists[i + 1] if i + 1 < len(lists) else None
+            merged_lists.append(merge_two_lists(l1, l2))
+        
+        lists = merged_lists
+    
+    return lists[0] if lists else None</code></pre>
+
+    <div class="page-break"></div>
+
+    <h2 id="applications">8. Real-World Applications</h2>
+
+    <div class="example">
+        <h4>1. Music Streaming Applications</h4>
+        <pre><code>class Song:
+    def __init__(self, title, artist):
+        self.title = title
+        self.artist = artist
+        self.next = None
+
+class Playlist:
+    def __init__(self):
+        self.current_song = None
+        self.is_shuffle = False
+    
+    def play_next(self):
+        if self.current_song:
+            self.current_song = self.current_song.next
+        return self.current_song</code></pre>
+    </div>
+
+    <div class="example">
+        <h4>2. Browser History Management</h4>
+        <pre><code>class BrowserHistory:
+    def __init__(self, homepage):
+        self.current = DoublyNode(homepage)
+        self.current.prev = None
+        self.current.next = None
+    
+    def visit(self, url):
+        new_page = DoublyNode(url)
+        self.current.next = new_page
+        new_page.prev = self.current
+        self.current = new_page
+    
+    def back(self, steps):
+        for _ in range(steps):
+            if self.current.prev:
+                self.current = self.current.prev
+        return self.current.data</code></pre>
+    </div>
+
+    <div class="example">
+        <h4>3. LRU Cache Implementation</h4>
+        <pre><code>class LRUCache:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.cache = {}
+        # Create dummy head and tail nodes
+        self.head = DoublyNode(0)
+        self.tail = DoublyNode(0)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+    
+    def get(self, key):
+        if key in self.cache:
+            node = self.cache[key]
+            self._move_to_head(node)
+            return node.val
+        return -1
+    
+    def put(self, key, value):
+        if key in self.cache:
+            node = self.cache[key]
+            node.val = value
+            self._move_to_head(node)
+        else:
+            if len(self.cache) >= self.capacity:
+                self._remove_tail()
+            new_node = DoublyNode(key, value)
+            self.cache[key] = new_node
+            self._add_to_head(new_node)</code></pre>
+    </div>
+
+    <h2>Summary of Problem-Solving Patterns</h2>
+
+    <div class="highlight">
+        <h3>1. Two Pointers Technique</h3>
+        <ul>
+            <li>Fast and slow pointers for cycle detection</li>
+            <li>Finding middle element</li>
+            <li>Finding nth node from end</li>
+        </ul>
+    </div>
+
+    <div class="highlight">
+        <h3>2. Dummy Node</h3>
+        <ul>
+            <li>Simplifies edge cases in insertion/deletion</li>
+            <li>Useful in merge operations</li>
+        </ul>
+    </div>
+
+    <div class="highlight">
+        <h3>3. Recursion</h3>
+        <ul>
+            <li>Natural for linked list problems</li>
+            <li>Be mindful of stack space</li>
+        </ul>
+    </div>
+
+    <div class="highlight">
+        <h3>4. In-place Reversal</h3>
+        <ul>
+            <li>Common sub-problem in many questions</li>
+            <li>Master the three-pointer technique</li>
+        </ul>
+    </div>
+
+    <div class="highlight">
+        <h3>5. Hash Table</h3>
+        <ul>
+            <li>For detecting cycles (alternative to Floyd's)</li>
+            <li>Finding intersections</li>
+            <li>Removing duplicates</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="best-practices">9. Best Practices &amp; Tips</h2>
+
+    <div class="tip">
+        <h3>Implementation Tips</h3>
+        <ol>
+            <li><strong>Always handle edge cases</strong>: Empty list, single node, two nodes, position at boundaries</li>
+            <li><strong>Draw diagrams</strong> while solving problems to visualize pointer movements</li>
+            <li><strong>Consider using dummy nodes</strong> to simplify logic and handle edge cases</li>
+            <li><strong>Track list size</strong> if frequent length queries are needed</li>
+            <li><strong>Choose the right type</strong>: Singly linked for simple forward traversal, doubly linked for frequent backward traversal, circular for round-robin scenarios</li>
+        </ol>
+    </div>
+
+    <div class="tip">
+        <h3>Interview Preparation</h3>
+        <ol>
+            <li><strong>Master the fundamental patterns</strong>: Two pointers, recursion, in-place reversal</li>
+            <li><strong>Practice pointer manipulation</strong> until it becomes second nature</li>
+            <li><strong>Start with simple problems</strong> and gradually move to complex ones</li>
+            <li><strong>Code by hand first</strong>, then verify with a compiler</li>
+            <li><strong>Think out loud</strong> during problem-solving to show your thought process</li>
+        </ol>
+    </div>
+
+    <div class="warning">
+        <h3>Common Pitfalls to Avoid</h3>
+        <ul>
+            <li><strong>Null pointer exceptions</strong>: Always check for null before accessing node properties</li>
+            <li><strong>Infinite loops</strong>: Be careful with cycle detection and pointer updates</li>
+            <li><strong>Memory leaks</strong>: In languages without garbage collection, properly deallocate memory</li>
+            <li><strong>Off-by-one errors</strong>: Pay attention to boundary conditions in loops</li>
+            <li><strong>Not handling single node case</strong>: Many algorithms break with only one node</li>
+        </ul>
+    </div>
+
+    <div class="tip">
+        <h3>When to Use Linked Lists in Production</h3>
+        <ul>
+            <li><strong>Dynamic data structures</strong> where size varies frequently</li>
+            <li><strong>Undo/Redo systems</strong> in text editors, image editors</li>
+            <li><strong>Implementation of other data structures</strong> (stacks, queues)</li>
+            <li><strong>Navigation systems</strong> (browser history, media players)</li>
+            <li><strong>Memory management</strong> in operating systems</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        <h3>When NOT to Use Linked Lists</h3>
+        <ul>
+            <li><strong>Frequent random access</strong> to elements by index</li>
+            <li><strong>Small, fixed-size</strong> collections</li>
+            <li><strong>Cache-sensitive</strong> applications requiring spatial locality</li>
+            <li><strong>Memory-constrained</strong> environments where pointer overhead matters</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="conclusion" id="conclusion">
+        <h2>10. Conclusion</h2>
+        
+        <p>Linked lists are fundamental data structures that provide excellent flexibility for dynamic data management. While they may not offer the random access capabilities of arrays, their strength lies in efficient insertion and deletion operations, making them invaluable for many real-world applications.</p>
+        
+        <h3>Key Takeaways</h3>
+        <ul>
+            <li><strong>Master the basics</strong>: Understanding node structure and pointer manipulation is crucial</li>
+            <li><strong>Practice common patterns</strong>: Two pointers, dummy nodes, and recursion solve most linked list problems</li>
+            <li><strong>Know your trade-offs</strong>: Linked lists excel in dynamic scenarios but arrays are better for random access</li>
+            <li><strong>Apply to real problems</strong>: From music playlists to browser history, linked lists solve everyday computing challenges</li>
+            <li><strong>Interview preparation</strong>: The five problems covered here represent the most common interview patterns</li>
+        </ul>
+        
+        <h3>Next Steps</h3>
+        <ol>
+            <li>Practice implementing all variants of linked lists from scratch</li>
+            <li>Solve 20-30 linked list problems on LeetCode or similar platforms</li>
+            <li>Study how linked lists are used in real-world systems and frameworks</li>
+            <li>Move on to more advanced data structures like trees and graphs</li>
+            <li>Explore system design problems that utilize linked lists</li>
+        </ol>
+        
+        <p>With consistent practice and understanding of these concepts, you'll be well-prepared to tackle any linked list problem in interviews or real-world development scenarios. Remember that the journey from beginner to advanced requires hands-on coding practice and deep understanding of the underlying principles.</p>
+        
+        <p><strong>Keep practicing, keep coding, and master the art of linked lists!</strong></p>
+    </div>
+
+</body>
+</html>
