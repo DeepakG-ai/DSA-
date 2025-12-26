@@ -1,4 +1,5 @@
 Arrays (10)
+
 Two Sum
 Best Time to Buy and Sell Stock
 Product of Array Except Self
@@ -9,7 +10,9 @@ Search in Rotated Sorted Array
 Container With Most Water
 Trapping Rain Water
 Merge Sorted Arrays
+
 Graphs (10)
+
 Number of Islands (DFS/BFS)
 Clone Graph
 Course Schedule (Topological Sort)
@@ -20,7 +23,9 @@ Longest Consecutive Sequence (Union-Find / Set)
 Word Search (Backtracking on Graph Grid)
 Minimum Height Trees
 Network Delay Time (Dijkstra’s Algorithm)
+
 Dynamic Programming (10)
+
 Climbing Stairs
 Coin Change
 Longest Increasing Subsequence
@@ -31,7 +36,9 @@ Jump Game
 Longest Common Subsequence
 Edit Distance
 Dungeon Game
+
 Strings (8)
+
 Longest Substring Without Repeating Characters
 Longest Palindromic Substring
 Valid Anagram
@@ -40,7 +47,9 @@ Valid Parentheses
 Minimum Window Substring
 String to Integer (atoi)
 Longest Repeating Character Replacement
+
 Linked Lists (7)
+
 Reverse Linked List
 Merge Two Sorted Lists
 Linked List Cycle
@@ -48,7 +57,9 @@ Remove Nth Node From End
 Merge K Sorted Lists
 Add Two Numbers
 Intersection of Two Linked Lists
+
 Trees (8)
+
 Maximum Depth of Binary Tree
 Validate Binary Search Tree
 Binary Tree Level Order Traversal
@@ -57,7 +68,9 @@ Binary Tree Maximum Path Sum
 Serialize and Deserialize Binary Tree
 Kth Smallest Element in BST
 Invert Binary Tree
+
 Intervals (5)
+
 Merge Intervals
 Insert Interval
 Non-overlapping Intervals
@@ -69,18 +82,23 @@ Median of Data Stream
 Merge K Sorted Lists (Heap version)
 Find K Closest Points to Origin
 Top K Frequent Elements
+
 Backtracking (5)
+
 Combination Sum
 N-Queens
 Palindromic Partitioning
 Word Search (grid search version)
 Sudoku Solver
+
 Design & System-Level DSA (5)
 LRU Cache
 LFU Cache
 Implement Trie (Prefix Tree)
 Design Hit Counter
 Design Autocomplete System
+
+
 Pattern Coverage in These 80
 Two Pointers / Sliding Window: Arrays & Strings problems
 DFS/BFS: Graph + Trees

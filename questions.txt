@@ -1,0 +1,156 @@
+================================================================================
+                         DSA QUESTIONS LIST (85+ Questions)
+================================================================================
+
+
+================================================================================
+1. ARRAYS (13)
+================================================================================
+1.  Two Sum
+2.  Best Time to Buy and Sell Stock
+3.  Product of Array Except Self
+4.  Maximum Subarray (Kadane's Algorithm)
+5.  Maximum Product Subarray
+6.  Search in Rotated Sorted Array
+7.  3Sum
+8.  4Sum
+9.  Container With Most Water
+10. Trapping Rain Water
+11. Merge Two Sorted Array Without Extra Space
+12. Length of Longest Subarray with Sum Less Than or Equal K
+13. Count of All Subarray with Sum Less Than K
+
+
+================================================================================
+2. STRINGS (9)
+================================================================================
+1. Longest Substring Without Repeating Characters
+2. Longest Palindromic Substring
+3. Valid Anagram
+4. Group Anagrams
+5. Valid Parentheses
+6. Minimum Window Substring
+7. String to Integer (atoi)
+8. Longest Repeating Character Replacement
+9. Valid Palindrome
+
+
+================================================================================
+3. LINKED LISTS (7)
+================================================================================
+1. Reverse Linked List
+2. Merge Two Sorted Lists
+3. Linked List Cycle
+4. Remove Nth Node From End
+5. Merge K Sorted Lists
+6. Add Two Numbers
+7. Intersection of Two Linked Lists
+
+
+================================================================================
+4. TREES (8)
+================================================================================
+1. Maximum Depth of Binary Tree
+2. Validate Binary Search Tree
+3. Binary Tree Level Order Traversal
+4. Lowest Common Ancestor of BST
+5. Binary Tree Maximum Path Sum
+6. Serialize and Deserialize Binary Tree
+7. Kth Smallest Element in BST
+8. Invert Binary Tree
+
+
+================================================================================
+5. GRAPHS (10)
+================================================================================
+1.  Number of Islands (DFS/BFS)
+2.  Clone Graph
+3.  Course Schedule (Topological Sort)
+4.  Pacific Atlantic Water Flow
+5.  Graph Valid Tree
+6.  Alien Dictionary (Topological Sort)
+7.  Longest Consecutive Sequence (Union-Find / Set)
+8.  Word Search (Backtracking on Graph Grid)
+9.  Minimum Height Trees
+10. Network Delay Time (Dijkstra's Algorithm)
+
+
+================================================================================
+6. DYNAMIC PROGRAMMING (10)
+================================================================================
+1.  Climbing Stairs
+2.  Coin Change
+3.  Longest Increasing Subsequence
+4.  House Robber
+5.  Decode Ways
+6.  Unique Paths
+7.  Jump Game
+8.  Longest Common Subsequence
+9.  Edit Distance
+10. Dungeon Game
+
+
+================================================================================
+7. INTERVALS (5)
+================================================================================
+1. Merge Intervals
+2. Insert Interval
+3. Non-overlapping Intervals
+4. Meeting Rooms II
+5. Chocolate Distribution Problem
+
+
+================================================================================
+8. HEAP / PRIORITY QUEUE (5)
+================================================================================
+1. Kth Largest Element in an Array
+2. Median of Data Stream
+3. Merge K Sorted Lists (Heap version)
+4. Find K Closest Points to Origin
+5. Top K Frequent Elements
+
+
+================================================================================
+9. BACKTRACKING (5)
+================================================================================
+1. Combination Sum
+2. N-Queens
+3. Palindromic Partitioning
+4. Word Search (grid search version)
+5. Sudoku Solver
+
+
+================================================================================
+10. DESIGN & SYSTEM-LEVEL DSA (5)
+================================================================================
+1. LRU Cache
+2. LFU Cache
+3. Implement Trie (Prefix Tree)
+4. Design Hit Counter
+5. Design Autocomplete System
+
+
+================================================================================
+11. MATRIX (6)
+================================================================================
+1. Matrix Chain Multiplication
+2. Minimum Path Sum in Matrix
+3. Maximal Rectangle in a Binary Matrix
+4. Search in a 2D Matrix
+5. Rotate Image (Matrix)
+6. Set Matrix Zeroes
+
+
+================================================================================
+PATTERN COVERAGE IN THESE 85+
+================================================================================
+- Two Pointers / Sliding Window: Arrays & Strings problems
+- DFS/BFS: Graph + Trees
+- Union-Find: Graph connectivity
+- Dynamic Programming: Optimal substructure problems
+- Heap: Ranking & shortest paths
+- Backtracking: Constraint satisfaction problems
+- Design: Real-world components used in AI systems
+
+
+================================================================================
