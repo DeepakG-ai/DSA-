@@ -155,6 +155,4 @@ if __name__ == "__main__":
     print("   Output: ", end="")
     print_linkedlist(no_cycle_head)
     
-    print("\n" + "=" * 50)
-    print("Now you know what LeetCode hides from you! 🎯")
-    print("=" * 50)
+
