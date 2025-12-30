@@ -320,7 +320,22 @@ The limit is a constant (5). This means 5n² + 3n and n² grow at the same rate 
 
 ### 2.3 Why log n Grows So Slowly
 
+A logarithm answers the question:
+**"How many times must I multiply the base to reach the number?"**
+
+Formally:
+$$\log_b(n) = x \quad \text{means} \quad b^x = n$$
+
+So the logarithm is the exponent you put on the base to get the number.
+
 **log n** (base 2) means: "How many times do I divide n by 2 until I reach 1?"
+
+
+A logarithm answers the question:
+“How many times must I multiply the base to reach the number?”
+Formally:
+\log _b(n)=x\quad \mathrm{means}\quad b^x=n
+So the logarithm is the exponent you put on the base to get the number.
 
 ```
 n = 1,000,000
