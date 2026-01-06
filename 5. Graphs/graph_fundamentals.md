@@ -737,7 +737,109 @@ class UnionFind:
 - Kruskal's MST algorithm
 - Account merge problems
 
-### 6.5 Algorithm Selection Guide
+### 6.5 Connected Components
+
+A **connected component** is a maximal set of vertices where every vertex is reachable from every other vertex in that set.
+
+#### Visual Example: 4 Connected Components
+
+```
+Component 1:  1 ─── 2       Component 2:  5
+              │     │                    / \
+              │     │                   6 ─ 7
+              3 ─── 4
+
+Component 3:  8             Component 4:  10 (alone)
+              │
+              9
+```
+
+#### Key Insight: All Components in ONE Data Structure
+
+**They're NOT connected to each other by edges!** But they're stored in **ONE dictionary**:
+
+```python
+# ONE dictionary holds ALL components
+graph = {
+    # Component 1
+    1: [2, 3],
+    2: [1, 4],
+    3: [1, 4],
+    4: [2, 3],
+    # Component 2
+    5: [6, 7],
+    6: [5, 7],
+    7: [5, 6],
+    # Component 3
+    8: [9],
+    9: [8],
+    # Component 4
+    10: []  # Isolated node - no neighbors
+}
+```
+
+> **Note**: The adjacency list (dictionary) is itself an object that stores lists.
+> So technically, graph uses **object (dict) + lists** stored in one data structure.
+> The "nodes" are just integer labels, not separate Node objects.
+
+#### Counting Connected Components (BFS/DFS)
+
+```python
+from collections import defaultdict, deque
+
+def count_components(n, edges):
+    """Count the number of connected components in an undirected graph."""
+    # Build adjacency list
+    graph = defaultdict(list)
+    for u, v in edges:
+        graph[u].append(v)
+        graph[v].append(u)
+    
+    visited = [False] * (n + 1)
+    count = 0
+    
+    def bfs(start):
+        queue = deque([start])
+        visited[start] = True
+        while queue:
+            node = queue.popleft()
+            for neighbor in graph[node]:
+                if not visited[neighbor]:
+                    visited[neighbor] = True
+                    queue.append(neighbor)
+    
+    # Loop through ALL nodes
+    for node in range(1, n + 1):
+        if not visited[node]:
+            count += 1       # Found a new component!
+            bfs(node)        # Mark all nodes in this component
+    
+    return count
+
+# Example usage
+edges = [(1,2), (1,3), (2,4), (3,4), (5,6), (5,7), (6,7), (8,9)]
+n = 10
+print(count_components(n, edges))  # Output: 4
+```
+
+#### Why This Works
+
+1. **Loop through ALL nodes** (1 to n)
+2. If a node is **unvisited**, it's a **new component** → increment count
+3. **BFS/DFS marks all reachable nodes** from that starting point
+4. Nodes in **other components** remain unvisited until we reach them in the loop
+5. Isolated nodes (like node 10) form their own component
+
+#### Comparison: Tree vs Graph Node Storage
+
+| Aspect | Tree / Linked List | Graph (Adjacency List) |
+|--------|-------------------|------------------------|
+| Node | Object with data + pointers | Just a number/label |
+| Edge | Pointer stored inside object | Entry in adjacency list |
+| Storage | Objects scattered in memory | One dict/array holds all |
+| Disconnected parts | Cannot have | ✅ Multiple components in ONE structure |
+
+### 6.6 Algorithm Selection Guide
 
 | Problem | Algorithm | Time |
 |---------|-----------|------|

@@ -7,7 +7,6 @@ M=[]
 for i in range(n):
     M.append([0]*n)
 
-
 #M=[] it creates {list: 8} [[0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
 
 for u,v in A:
@@ -22,6 +21,7 @@ M[1] = connections FROM node 1
 M[2] = connections FROM node 2
 ...
 M[7] = connections FROM node 7"""
+
 # Edge [0, 1] → M[0][1] = 1
 #   Row 0 (node 0), Column 1 → node 0 connects to node 1
 
@@ -97,4 +97,88 @@ Comparison:
 | list of lists   | No import, fast access    | Must know n beforehand         |
 
 For interviews: defaultdict is preferred!
+"""
+
+
+
+# ============================================
+# DIRECTED vs UNDIRECTED GRAPHS
+# ============================================
+"""
+Key Difference:
+- Directed Graph:   Edge (u, v) means u → v (one-way only)
+- Undirected Graph: Edge (u, v) means u ↔ v (both ways)
+
+Real-world examples:
+- Directed:   Instagram follow (I follow you, but you may not follow me)
+- Undirected: Facebook friends (if I'm your friend, you're my friend too)
+"""
+
+# Example edges for undirected graph (like Striver's video)
+B = [(1, 2), (1, 3), (2, 4), (2, 5), (3, 4)]
+
+print("\n" + "="*50)
+print("UNDIRECTED GRAPH (neighbors stored both ways)")
+print("="*50)
+
+# Method 1: Undirected with defaultdict
+graph_undirected = defaultdict(list)
+for u, v in B:
+    graph_undirected[u].append(v)  # u → v
+    graph_undirected[v].append(u)  # v → u  ← KEY: add reverse edge!
+
+print("\n--- Undirected Graph (defaultdict) ---")
+print(dict(graph_undirected))
+# Output: {1: [2, 3], 2: [1, 4, 5], 3: [1, 4], 4: [2, 3], 5: [2]}
+
+# Method 2: Undirected with regular dict
+graph_undirected2 = {}
+for u, v in B:
+    if u not in graph_undirected2:
+        graph_undirected2[u] = []
+    if v not in graph_undirected2:
+        graph_undirected2[v] = []
+    
+    graph_undirected2[u].append(v)  # u → v
+    graph_undirected2[v].append(u)  # v → u
+
+print("\n--- Undirected Graph (regular dict) ---")
+print(graph_undirected2)
+
+"""
+Visual of Undirected Graph B:
+    
+    1 ─── 2
+    │╲    │
+    │ ╲   │
+    │  ╲  │
+    3 ─── 4 ─── 5
+
+Adjacency List:
+    1: [2, 3]     → 1 is connected to 2 and 3
+    2: [1, 4, 5]  → 2 is connected to 1, 4, and 5 (notice 1 is here!)
+    3: [1, 4]     → 3 is connected to 1 and 4
+    4: [2, 3]     → 4 is connected to 2 and 3
+    5: [2]        → 5 is connected to 2
+
+Notice: If 1 contains 2, then 2 also contains 1!
+This is the key property of undirected graphs.
+"""
+
+# ============================================
+# COMPARISON: Directed vs Undirected
+# ============================================
+"""
+| Aspect            | Directed Graph           | Undirected Graph          |
+|-------------------|--------------------------|---------------------------|
+| Edge meaning      | u → v (one-way)          | u ↔ v (both ways)         |
+| Storage           | graph[u].append(v)       | graph[u].append(v) AND    |
+|                   |                          | graph[v].append(u)        |
+| Real example      | Twitter follow           | Facebook friendship       |
+| Edge count        | E edges stored           | 2*E edges stored          |
+|-------------------|--------------------------|---------------------------|
+
+When to use which:
+- Directed: Roads with one-way streets, dependencies, web links
+- Undirected: Social networks, physical connections, bidirectional paths
 """
