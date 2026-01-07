@@ -739,7 +739,7 @@ class UnionFind:
 
 ### 6.5 Connected Components
 
-A **connected component** is a maximal set of vertices where every vertex is reachable from every other vertex in that set.
+A **connected component** is a maximal set of nodes where every node is reachable from every other node in that set.
 
 #### Visual Example: 4 Connected Components
 
@@ -829,15 +829,6 @@ print(count_components(n, edges))  # Output: 4
 3. **BFS/DFS marks all reachable nodes** from that starting point
 4. Nodes in **other components** remain unvisited until we reach them in the loop
 5. Isolated nodes (like node 10) form their own component
-
-#### Comparison: Tree vs Graph Node Storage
-
-| Aspect | Tree / Linked List | Graph (Adjacency List) |
-|--------|-------------------|------------------------|
-| Node | Object with data + pointers | Just a number/label |
-| Edge | Pointer stored inside object | Entry in adjacency list |
-| Storage | Objects scattered in memory | One dict/array holds all |
-| Disconnected parts | Cannot have | ✅ Multiple components in ONE structure |
 
 ### 6.6 Algorithm Selection Guide
 
