@@ -97,7 +97,7 @@ def findCircleNum_DFS(isConnected: list) -> int:
 
 if __name__ == "__main__":
     
-    # TEST 1: LeetCode Example 1
+    # TEST 1: LeetCode Example 1 ( Inputs are in Adjacency Matrix)
     # Cities: 0 - 1, 2 is alone
     # [[1,1,0],
     #  [1,1,0],
