@@ -139,44 +139,6 @@ def numIslands_DFS(grid: list) -> int: # Recommended for
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def numIslands_SinkDFS(grid: list) -> int:
     """
     Count islands using DFS (Space Optimized).
@@ -212,6 +174,29 @@ def numIslands_SinkDFS(grid: list) -> int:
                 dfs(i, j)
     
     return count
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # ============================================
