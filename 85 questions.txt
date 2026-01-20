@@ -19,7 +19,6 @@ Course Schedule (Topological Sort)
 Pacific Atlantic Water Flow
 Graph Valid Tree
 Alien Dictionary (Topological Sort)
-Longest Consecutive Sequence (Union-Find / Set)
 Word Search (Backtracking on Graph Grid)
 Minimum Height Trees
 Network Delay Time (Dijkstra’s Algorithm)

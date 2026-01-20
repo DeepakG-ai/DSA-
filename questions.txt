@@ -19,6 +19,7 @@
 11. Merge Two Sorted Array Without Extra Space
 12. Length of Longest Subarray with Sum Less Than or Equal K
 13. Count of All Subarray with Sum Less Than K
+14. Longest Consecutive Sequence (HashSet)
 
 
 ================================================================================
@@ -69,10 +70,9 @@
 4.  Pacific Atlantic Water Flow
 5.  Graph Valid Tree
 6.  Alien Dictionary (Topological Sort)
-7.  Longest Consecutive Sequence (Union-Find / Set)
-8.  Word Search (Backtracking on Graph Grid)
-9.  Minimum Height Trees
-10. Network Delay Time (Dijkstra's Algorithm)
+7.  Word Search (Backtracking on Graph Grid)
+8.  Minimum Height Trees
+9.  Network Delay Time (Dijkstra's Algorithm)
 
 
 ================================================================================
