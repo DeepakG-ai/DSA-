@@ -1,0 +1,9 @@
+with open(file path, mode) as f:
+    content = f.read()
+    print(content)
+
+This is content in notes.txt
+
+it has no words of err_or. so don't print
+
+it has error word in this line. so printed.
