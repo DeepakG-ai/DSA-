@@ -1,0 +1,18 @@
+2026-07-26 12:12:14 - INFO-Starting the info
+2026-07-26 12:12:14 - ERROR-Errors are logged into file
+2026-07-26 12:12:14 - WARNING-WARNING: update the pip
+2026-07-26 12:12:14 - CRITICAL-critical error found
+2026-07-26 12:13:10 - INFO-Starting the info
+2026-07-26 12:13:10 - ERROR-Errors are logged into file
+2026-07-26 12:13:10 - WARNING-WARNING: update the pip
+2026-07-26 12:13:10 - CRITICAL-critical error found
+2026-07-26 12:17:48 - DEBUG    - logging_file.py:25 - DEBUG: it is working
+2026-07-26 12:17:48 - INFO     - logging_file.py:26 - Starting the info
+2026-07-26 12:17:48 - ERROR    - logging_file.py:27 - Errors are logged into file
+2026-07-26 12:17:48 - WARNING  - logging_file.py:28 - WARNING: update the pip
+2026-07-26 12:17:48 - CRITICAL - logging_file.py:29 - critical error found
+2026-07-26 12:20:00 - DEBUG    - logging_setup.py:25 - DEBUG: it is working
+2026-07-26 12:20:00 - INFO     - logging_setup.py:26 - Starting the info
+2026-07-26 12:20:00 - ERROR    - logging_setup.py:27 - Errors are logged into file
+2026-07-26 12:20:00 - WARNING  - logging_setup.py:28 - WARNING: update the pip
+2026-07-26 12:20:00 - CRITICAL - logging_setup.py:29 - critical error found

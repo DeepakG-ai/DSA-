@@ -1,0 +1,15 @@
+2026-07-26 14:12:45,905 - INFO-Application starting
+2026-07-26 14:12:45,905 - INFO-Connecting to db
+2026-07-26 14:12:45,905 - ERROR-Connection failed
+2026-07-26 14:12:45,905 - INFO-Fetching data from API
+2026-07-26 14:12:45,905 - WARNING-Slow response detected
+2026-07-26 14:13:35,708 - INFO-Application starting
+2026-07-26 14:13:35,708 - INFO-Connecting to db
+2026-07-26 14:13:35,709 - ERROR-Connection failed
+2026-07-26 14:13:35,709 - INFO-Fetching data from API
+2026-07-26 14:13:35,709 - WARNING-Slow response detected
+2026-07-26 14:19:48,315 - INFO- __main__- Application starting
+2026-07-26 14:19:48,315 - INFO- db- Connecting to db
+2026-07-26 14:19:48,315 - ERROR- db- Connection failed
+2026-07-26 14:19:48,315 - INFO- api- Fetching data from API
+2026-07-26 14:19:48,316 - WARNING- api- Slow response detected
